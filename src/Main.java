@@ -18,18 +18,18 @@ public class Main {
     }
 
     private static void sort() {
-        System.out.println("Sorting started..." + "\n");
+        System.out.println("Sorting started..............." + "\n");
         Comparator<Item> comparator = Comparator.comparing(Item::getType);
         unsortedItems.sort(comparator);
         List<ItemStandard> standardDetails = new ArrayList<>();
         List<ItemDetail> details = new ArrayList<>();
         List<MaterialItem> materials = new ArrayList<>();
-        for(Item i : unsortedItems) {
-            switch (i.getType()){
+        for (Item i : unsortedItems) {
+            switch (i.getType()) {
                 case DET:
                 case SE:
                     details.add((ItemDetail) i);
-                     break;
+                    break;
                 case MAT:
                     assert i instanceof MaterialItem;
                     materials.add((MaterialItem) i);
@@ -51,7 +51,7 @@ public class Main {
 
     private static void readResources() throws IOException {
 
-        System.out.println("Reading from file..." + "\n");
+        System.out.println("Reading from file........" + "\n");
         BufferedReader br = new BufferedReader(new FileReader("resources.txt"));
         try {
             String line = br.readLine();

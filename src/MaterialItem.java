@@ -1,16 +1,20 @@
 
 public class MaterialItem implements Item, Comparable<MaterialItem> {
     private final ItemType itemType;
-    private final String designation;
+    private String designation;
 
     public MaterialItem(ItemType itemType, String designation) {
         this.itemType = itemType;
-        this.designation = designation;
+        parse(designation);
     }
 
     @Override
     public void parse(String designation) {
-        //TODO
+        if (designation.length() > 128) {
+            throw new IndexOutOfBoundsException("Material name is too long");
+        } else {
+            this.designation = designation;
+        }
     }
 
     @Override
